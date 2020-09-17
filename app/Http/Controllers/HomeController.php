@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Niveau;
+use App\Matiere;
+use App\Programme;
+use App\Enseignant;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $matiere = Matiere::all();
+        $niveau = Niveau::all();
+        $enseignant = Enseignant::all();
+        $programme = Programme::all();
+        return view('home', ['programme'=>$programme, 'enseignant'=>$enseignant, 'niveau'=>$niveau, 'matiere'=>$matiere]);
     }
 }

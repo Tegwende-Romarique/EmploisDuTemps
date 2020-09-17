@@ -1,100 +1,88 @@
 
-@extends('layouts.include')
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>UFR SDS</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	</head>
-	<body class="is-preload">
+@extends('layouts.dashboard') 
+@section('main-content')
+<body>
+<!---->
+<main>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<div class="container my-5">
+       <div class="card-body text-center">
+   
+    <h4 class="card-title">Programme de la semaine </label></h4>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  </div>
+    <div class="card">
+        <button id="add__new__list" type="button" class="btn btn-success position-absolute" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus"></i> Add a new List</button>
+       
+       
+        <table class="table table-hover  table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Niveau</th>
+                <th scope="col">Dates</th>
+                <th scope="col">Heures</th>
+                <th scope="col">Matière</th>
+                <th scope="col">Enseignant</th>
+                <th scope="col">Salle</th>
+              </tr>
+            </thead>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-						
-							<!-- Header -->
-								<!-- <header id="header">
-									<strong>Bienvenu sur votre espace de travail</strong>
-								</header> -->
+            @foreach($programme as $key)     
+        
+            <tbody>
+              <tr>
+                <th scope="row">{{$key->Niveau->niveau}}</th>
+                <td>{{$key->heure}}</td>
+                <td>{{$key->heure}}</td>
+                <td>{{$key->Matiere->intitulle}}</td>
+                <td>{{$key->Enseignant->nom}} {{$key->Enseignant->prenom}}</td>
+                <td>{{$key->salle}}</td>
+              </tr>
+            </tbody>
+            @endforeach
+          </table>
+          
+    </div>
+    <!-- Large modal -->
+  
 
-								<section>
-								<div class='main'>
-       							 @yield('main-content')
-        						</div>
-								</section>
-						</div>
-					</div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+          <div class="card-body text-center">
+            <h4 class="card-title">Special title treatment</h4>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          </div>
+            <div class=" card col-8 offset-2 my-2 p-3">
+          <form>
+            <div class="form-group">
+              <label for="listname">List name</label>
+              <input type="text" class="form-control" name="listname" id="listname" placeholder="Enter your listname">
+            </div>
+            <div class="form-group">
+              <label for="datepicker">Deadline</label>
+              <input  type="text" class="form-control" name="datepicker" id="datepicker" placeholder="Pick up a date">
+            </div>
+            <div class="form-group">
+                                    <label for="datepicker">Add a list item</label>
+                <div class="input-group">
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="{{ url('/') }}"><i class="fa fa-home" aria-hidden="true"></i>  ACCUEIL</a></li>													
-										<li>
-											<span class="opener"><i class="fa fa-user" aria-hidden="true"></i> ENSEIGNANTS</span>
-											<ul>
-											<li><a href="{{ url('formulaire-enseignant') }}">Ajouter un Nouveau Enseignant</a></li>
-												<li><a href="#">Afficher la Liste Enseignant</a></li>
-											</ul>
-										</li>
-										<li>
-											<span class="opener"><i class="fa fa-book" aria-hidden="true"></i> MATIERES</span>
-											<ul>
-											<li><a href="{{ url('formulaire-matiere') }}">Ajouter une Nouvelle Matière</a></li>
-											<li><a href="#">Afficher la Liste des Matière</a></li>
-											</ul>
-										</li>
-
-										<li>
-											<span class="opener"><i class="fa fa-signal " aria-hidden="true"></i>  Niveau</span>
-											<ul>
-											<li><a href="{{ url('formulaire-niveau') }}">Ajouter un Nivau</a></li>
-											<li><a href="#">Afficher la Liste des Niveau</a></li>
-											</ul>
-										</li>
-										<li>
-											<span class="opener"><i class="fa fa-calendar" aria-hidden="true"></i> Programme</span>
-											<ul>
-											<li><a href="{{ url('formulaire-programme') }}">Ajouter un Nouveau Programme</a></li>
-											<li><a href="{{ url('liste-programme') }}">Afficher la Liste des Programmes</a></li>
-											</ul>
-										</li>
-									</ul>
-								</nav>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="#">Unsplash</a>. Design: <a href="#">HTML5 UP</a>.</p>
-								</footer>
-
-						</div>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-		<script src="js/jquery.min.js"></script> 
-			<script src="js/browser.min.js"></script>
-			<script src="js/breakpoints.min.js"></script>
-			<script src="js/util.js"></script> 
-			<script src="js/main.js"></script>
-	</body>
-</html>
-
+                  <input type="text" class="form-control" placeholder="Add an item" aria-label="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button">Go!</button>
+                  </span>
+                </div>
+              </div>
+           <div class="form-group text-center">
+             <button type="submit" class="btn btn-block btn-primary">Sign in</button>
+          </div>
+        </form>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+</main>
+<!---->
+</body>
+@endsection
