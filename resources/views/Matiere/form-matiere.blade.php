@@ -1,5 +1,6 @@
 
-@extends('layouts.include')
+@extends('layouts.dashboard') 
+@section('main-content')
 
 <div class="container" style="font-weight:800;">
 <h1 class="armelle">Ajouter un nouveau Professeur</h1>
@@ -32,4 +33,6 @@
 </div>
 
 </form>
+</div>
+@endsection
 

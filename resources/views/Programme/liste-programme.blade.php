@@ -1,7 +1,5 @@
 
-@extends('layouts.include')
-@extends('layouts.liste')
-  
+@extends('layouts.dashboard') 
 @section('main-content')
 <body>
 <!---->
@@ -86,5 +84,5 @@
 </div>
 </main>
 <!---->
-
 </body>
+@endsection

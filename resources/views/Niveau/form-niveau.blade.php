@@ -1,6 +1,5 @@
-
-@extends('layouts.include')
-
+@extends('layouts.dashboard') 
+@section('main-content')
 <div class="container" style="font-weight:800;">
 <h1 class="armelle">Ajouter un Niveau</h1>
 <form action="{{ url('ajouter-niveau') }} " method="post" id="mt-form" >
@@ -17,4 +16,7 @@
 </div>
 
 </form>
+</div>
+
+@endsection
 

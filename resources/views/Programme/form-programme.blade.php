@@ -1,5 +1,5 @@
-
-@extends('layouts.include')
+@extends('layouts.dashboard') 
+@section('main-content')
 
 <div class="container" style="font-weight:800;">
 <h1 class="armelle">Ajouter un nouveau Professeur</h1>
@@ -57,6 +57,6 @@
 <button class="btn btn-primary" id="coleur" type="submit">Valider</button>
 <button class="btn btn-danger" id="coleur" type="reset">Annuler</button>
 </div>
-
 </form>
-
+</div>
+@endsection

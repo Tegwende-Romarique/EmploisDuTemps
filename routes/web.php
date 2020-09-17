@@ -36,7 +36,7 @@ Route::post('ajouter-niveau', 'NiveausController@store');
 
                 // Programme
 Route::get('formulaire-programme', 'ProgrammesController@create');
-Route::get(' ', 'ProgrammesController@index');
+Route::get('liste-programme', 'ProgrammesController@index');
 Route::post('ajouter-programme', 'ProgrammesController@store');
 
 Auth::routes();
